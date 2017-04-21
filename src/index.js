@@ -40,18 +40,10 @@ if (cluster.isMaster) {
 
     res.setHeader('Content-Type', 'image/svg+xml');
 
-    let color;
+    let color = '#D2402F'
 
-    switch (score) {
-      case (score >= 35):
-        color = '#52D22F'
-        break
-      case (score > 0 && score < 35):
-        color = '#D27B2F'
-        break
-      default:
-        color = '#D2402F'
-    }
+    if (score >= 35) color = '#52D22F'
+    else if (score >= 0 && score <= 35) color = '#D27B2F'
 
     return res.send(svg(score, color));
   })
