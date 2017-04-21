@@ -7,7 +7,8 @@
   },
   "scripts": {
     "start": "node ./src/index.js",
-    "develop": "nodemon ./src/index.js"
+    "develop": "nodemon ./src/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
+    "jest": "^19.0.2",
     "nodemon": "^1.11.0"
   }
 }
