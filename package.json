@@ -2,6 +2,9 @@
   "name": "cool-kid",
   "version": "1.3.37",
   "main": "index.js",
+  "engines": {
+    "node": ">= 7.6.0"
+  },
   "scripts": {
     "start": "node ./src/index.js",
     "develop": "nodemon ./src/index.js"
