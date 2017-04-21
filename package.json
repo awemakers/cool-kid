@@ -1,5 +1,5 @@
 {
-  "name": "am-i-a-cool-kid",
+  "name": "cool-kid",
   "version": "1.3.37",
   "main": "index.js",
   "scripts": {
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tom-Bonnike/am-i-a-cool-kid.git"
+    "url": "git+https://github.com/Tom-Bonnike/cool-kid.git"
   },
   "author": "Tom Bonnike / Arnaud Allouis / Baptiste Lambert",
   "bugs": {
-    "url": "https://github.com/Tom-Bonnike/am-i-a-cool-kid/issues"
+    "url": "https://github.com/Tom-Bonnike/cool-kid/issues"
   },
-  "homepage": "https://github.com/Tom-Bonnike/am-i-a-cool-kid#readme",
+  "homepage": "https://github.com/Tom-Bonnike/cool-kid#readme",
   "dependencies": {
     "express": "^4.15.2",
     "node-fetch": "^1.6.3"
