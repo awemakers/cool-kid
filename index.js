@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
 const fetch = require('node-fetch')
-const scoringData = require('./scoring-data.json')
+const scoringData = require('./scoring-data')
 
 const getPackageDotJSON = async (URL) => {
   try {
