@@ -11,6 +11,7 @@ const getPackageDotJSON = async (URL) => {
     return body
   } catch (e) {
     console.log(e)
+    return {}
   }
 }
 
@@ -18,13 +19,15 @@ app.get('/:username/:repositoryName/:branch?', async (req, res) => {
   const { username, repositoryName, branch = 'master' } = req.params
   const URL =
     `https://raw.githubusercontent.com/${username}/${repositoryName}/${branch}/package.json`
-  const { dependencies, devDependencies } = await getPackageDotJSON(URL)
+  const { dependencies = null, devDependencies = null } = await getPackageDotJSON(URL)
 
   let score = 0
 
-  for (const dependencyName in dependencies) {
-    const dependency = scoringData[dependencyName]
-    dependency && (score += dependency)
+  if (dependencies && devDependencies) {
+    for (const dependencyName in dependencies) {
+      const dependency = scoringData[dependencyName]
+      dependency && (score += dependency)
+    }
   }
 
   return res.json(score)
