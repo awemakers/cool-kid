@@ -1,30 +1,32 @@
 const cluster = require('cluster')
 const express = require('express')
+const http = require('http')
+const os = require('os')
 const getPackageDotJSON = require('./get-package-dot-json')
 const getYarnLock = require('./get-yarn-lock')
 const scoringData = require('./scoring-data')
 const svg = require('./svg')
 
 if (cluster.isMaster) {
-  for (let i = 0; i < require('os').cpus().length; i++) {
+  for (let i = 0; i < os.cpus().length; i += 1) {
     cluster.fork()
   }
 
-  cluster.on('exit', worker => cluster.fork())
+  cluster.on('exit', () => cluster.fork())
 } else {
   const app = express()
-  const server = require('http').createServer(app)
+  const server = http.createServer(app)
 
   app.get('/:username/:repositoryName/:branch?', async (req, res) => {
     const {
       username,
       repositoryName,
-      branch = 'master'
+      branch = 'master',
     } = req.params
     const URL = `https://raw.githubusercontent.com/${username}/${repositoryName}/${branch}`
     const {
       dependencies = null,
-      devDependencies = null
+      devDependencies = null,
     } = await getPackageDotJSON(`${URL}/package.json`)
     const yarnLockExists = await getYarnLock(`${URL}/yarn.lock`)
 
@@ -32,8 +34,10 @@ if (cluster.isMaster) {
 
     if (dependencies && devDependencies) {
       for (const dependencyName in dependencies) {
-        const dependency = scoringData[dependencyName]
-        dependency && (score += dependency)
+        if (Object.prototype.hasOwnProperty.call(dependencies, dependencyName)) {
+          const dependency = scoringData[dependencyName]
+          dependency && (score += dependency)
+        }
       }
     }
 

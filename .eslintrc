@@ -1,0 +1,9 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    semi: ["error", "never"],
+    no-console: 0,
+    no-unused-expressions: ["error", { "allowShortCircuit": true }],
+    no-restricted-syntax: 0
+  }
+}

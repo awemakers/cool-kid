@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   // ?????
   'npm': -5000,
