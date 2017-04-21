@@ -1,6 +1,10 @@
 const cluster = require('cluster')
 const express = require('express')
 const scoringData = require('./scoring-data')
+const getPackageDotJSON = require('./get-package-dot-json')
+const getYarnLock = require('./get-yarn-lock')
+
+const svg = require('./svg')
 
 if (cluster.isMaster) {
   for (let i = 0; i < require('os').cpus().length; i++) {
@@ -34,10 +38,25 @@ if (cluster.isMaster) {
       }
     }
 
-    return res.json(score)
+    res.setHeader('Content-Type', 'image/svg+xml');
+
+    let color;
+
+    switch (score) {
+      case (score >= 35):
+        color = '#52D22F'
+        break
+      case (score > 0 && score < 35):
+        color = '#D27B2F'
+        break
+      default:
+        color = '#D2402F'
+    }
+
+    return res.send(svg(score, color));
   })
 
-  server.listen(process.env.NODE_ENV === 'development' ? 8080 : 80)
+  server.listen(process.env.NODE_ENV === 'development' ? 8080 : 8004)
 }
 
 process.on('uncaughtException', (e) => {
