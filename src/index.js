@@ -1,9 +1,8 @@
 const cluster = require('cluster')
 const express = require('express')
-const scoringData = require('./scoring-data')
 const getPackageDotJSON = require('./get-package-dot-json')
 const getYarnLock = require('./get-yarn-lock')
-
+const scoringData = require('./scoring-data')
 const svg = require('./svg')
 
 if (cluster.isMaster) {
@@ -38,14 +37,12 @@ if (cluster.isMaster) {
       }
     }
 
-    res.setHeader('Content-Type', 'image/svg+xml');
-
     let color = '#D2402F'
-
     if (score >= 35) color = '#52D22F'
     else if (score >= 0 && score <= 35) color = '#D27B2F'
 
-    return res.send(svg(score, color));
+    res.setHeader('Content-Type', 'image/svg+xml')
+    return res.send(svg(score, color))
   })
 
   server.listen(process.env.NODE_ENV === 'development' ? 8080 : 8004)
