@@ -1,7 +1,7 @@
+const fetch = require('node-fetch')
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
-const fetch = require('node-fetch')
 const scoringData = require('./scoring-data')
 
 const getPackageDotJSON = async (URL) => {
@@ -15,13 +15,30 @@ const getPackageDotJSON = async (URL) => {
   }
 }
 
-app.get('/:username/:repositoryName/:branch?', async (req, res) => {
-  const { username, repositoryName, branch = 'master' } = req.params
-  const URL =
-    `https://raw.githubusercontent.com/${username}/${repositoryName}/${branch}/package.json`
-  const { dependencies = null, devDependencies = null } = await getPackageDotJSON(URL)
+const getYarnLock = async (URL) => {
+  try {
+    const response = await fetch(URL)
+    return (response.status === 200)
+  } catch (e) {
+    console.log(e)
+    return false
+  }
+}
 
-  let score = 0
+app.get('/:username/:repositoryName/:branch?', async (req, res) => {
+  const {
+    username,
+    repositoryName,
+    branch = 'master'
+  } = req.params
+  const URL = `https://raw.githubusercontent.com/${username}/${repositoryName}/${branch}`
+  const {
+    dependencies = null,
+    devDependencies = null
+  } = await getPackageDotJSON(`${URL}/package.json`)
+  const yarnLockExists = await getYarnLock(`${URL}/yarn.lock`)
+
+  let score = (yarnLockExists ? 10 : 0)
 
   if (dependencies && devDependencies) {
     for (const dependencyName in dependencies) {

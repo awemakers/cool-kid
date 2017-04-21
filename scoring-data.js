@@ -14,7 +14,7 @@ module.exports = {
   'path': -1000,
   'readline': -1000,
 
-  // Outdated technologies
+  // Wait? People are still using this?
   'sha1': -50,
   'jquery': -50,
   'zepto': -25,
@@ -23,8 +23,8 @@ module.exports = {
   'angular': -10,
   'broccoli': -10,
   'grunt': -10,
-
-  // Wait? People are still using this?
+  'bower': -10,
+  'bootstrap': -10,
   'request': -10,
   'semi-standard': -10, // ;
   'ionic': -10,
@@ -52,6 +52,7 @@ module.exports = {
   'three': 5,
   'vue': 5,
   'reactotron': 5,
+  'gatsby': 5,
   'eslint-config-airbnb': 10,
   'eslint-config-airbnb-base': 10,
   'flow': 10,
