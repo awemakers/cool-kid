@@ -1,0 +1,23 @@
+{
+  "name": "am-i-a-cool-kid",
+  "version": "13.3.7",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "develop": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tom-Bonnike/am-i-a-cool-kid.git"
+  },
+  "author": "Tom Bonnike, Arnaud Allouis & Baptiste Lambert",
+  "bugs": {
+    "url": "https://github.com/Tom-Bonnike/am-i-a-cool-kid/issues"
+  },
+  "homepage": "https://github.com/Tom-Bonnike/am-i-a-cool-kid#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-fetch": "^1.6.3",
+    "nodemon": "^1.11.0"
+  }
+}
