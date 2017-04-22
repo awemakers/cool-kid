@@ -34,9 +34,9 @@ if (cluster.isMaster) {
 
     if (dependencies && devDependencies) {
       for (const dependencyName in dependencies) {
-        if (Object.prototype.hasOwnProperty.call(dependencies, dependencyName)) {
+        if (Object.prototype.hasOwnProperty.call(scoringData, dependencyName)) {
           const dependency = scoringData[dependencyName]
-          dependency && (score += dependency)
+          score += dependency
         }
       }
     }

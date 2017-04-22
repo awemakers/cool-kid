@@ -67,5 +67,5 @@ test('get redux package.json', async () => {
 })
 
 test('get meteor package.json and fail', async () => {
-  await expect(getPackageDotJSON('https://raw.githubusercontent.com/reactjs/redux/master/package.json')).rejects
+  await expect(getPackageDotJSON('https://raw.githubusercontent.com/meteor/meteor/devel/package.json')).rejects
 })

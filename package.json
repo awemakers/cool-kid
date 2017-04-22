@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/baloran/cool-kid.git"
+    "url": "git+https://github.com/awemakers/cool-kid.git"
   },
   "author": "Tom Bonnike / Arnaud Allouis / Baptiste Lambert",
   "bugs": {
-    "url": "https://github.com/baloran/cool-kid/issues"
+    "url": "https://github.com/awemakers/cool-kid/issues"
   },
-  "homepage": "https://github.com/baloran/cool-kid#readme",
+  "homepage": "https://github.com/awemakers/cool-kid#readme",
   "dependencies": {
     "express": "^4.15.2",
     "node-fetch": "^1.6.3"
