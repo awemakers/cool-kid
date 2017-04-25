@@ -45,7 +45,7 @@ if (cluster.isMaster) {
     return res.send(svg(score, color))
   })
 
-  server.listen(process.env.NODE_ENV === 'development' ? 8080 : 8004)
+  server.listen(process.env.PORT || 8080)
 }
 
 process.on('uncaughtException', (e) => {

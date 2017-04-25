@@ -1,42 +1,66 @@
-const generateSvg = (score, color) => (
-  `<svg width="98px" height="20px" viewBox="0 0 98 20">
-    <rect
+const generateSvg = (score, color) => (`
+  <svg
+    width="100"
+    height="20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <svg
+      width="50%"
+      height="100%"
       x="0"
       y="0"
-      width="98"
-      height="20"
-      rx="2"
-    ></rect>
-
-    <rect
-      fill="${color}"
-      x="51"
-      y="-4"
-      width="48.5217391"
-      height="29.6470588"
-    ></rect>
-
-    <text
-      font-family="Operator Mono, FiraCode, monospace"
-      font-size="10"
-      font-weight="400"
-      letter-spacing="-0.25"
-      fill="#FFFFFF"
     >
-      <tspan x="4" y="13">cool-kid</tspan>
-    </text>
+      <rect
+        width="100%"
+        height="100%"
+        x="0"
+        y="0"
+        fill="#000"
+      ></rect>
+      <text
+        x="50%"
+        y="50%"
+        alignment-baseline="middle"
+        text-anchor="middle"
+        font-family="OperatorMono-Medium, Operator Mono, monospace"
+        font-size="10"
+        font-weight="400"
+        letter-spacing="-0.25"
+        fill="#FFF"
+      >
+        cool-kid
+      </text>
+    </svg>
 
-    <text
-      font-family="Operator Mono, FiraCode, monospace"
-      font-size="10"
-      font-style="italic"
-      font-weight="500"
-      letter-spacing="-0.5"
-      fill="#FFFFFF"
+    <svg
+      width="50%"
+      height="100%"
+      x="50"
+      y="0"
     >
-      <tspan x="70" y="13">${score}</tspan>
-    </text>
-  </svg>`
-)
+      <rect
+        width="100%"
+        height="100%"
+        x="0"
+        y="0"
+        fill="${color}"
+      ></rect>
+
+      <text
+        x="50%"
+        y="50%"
+        alignment-baseline="middle"
+        text-anchor="middle"
+        font-family="OperatorMono-Medium, Operator Mono, monospace"
+        font-size="10"
+        font-weight="400"
+        letter-spacing="-0.25"
+        fill="#FFF"
+      >
+        ${score}
+      </text>
+    </svg>
+  </svg>
+`)
 
 module.exports = generateSvg
