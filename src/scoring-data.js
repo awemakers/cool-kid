@@ -4,16 +4,6 @@ module.exports = {
   'yarn': -5000,
   'node': -5000,
 
-  // You don’t need to require this, moron
-  'child_process': -1000,
-  'cluster': -1000,
-  'fs': -1000,
-  'http': -1000,
-  'net': -1000,
-  'os': -1000,
-  'path': -1000,
-  'readline': -1000,
-
   // Wait? People are still using this?
   'sha1': -50,
   'jquery': -50,
