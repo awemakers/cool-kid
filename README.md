@@ -1,8 +1,8 @@
 [![Am I a cool kid ?](http://cool-kid.herokuapp.com/awemakers/cool-kid)](https://github.com/awemakers/cool-kid)
 
-## How use it ?
+## How to use it ?
 
-> copy paste in your `README.md`. Simple as fuck. ¯\_(ツ)_/¯
+> copy paste the following line in your `README.md`. Show your coolness rating. Simple as fuck. ¯\\\_(ツ)_/¯
 
 ```markdown
 
@@ -10,6 +10,6 @@
 
 ```
 
-#nodevshaming
+#no #dev #shaming
 
 Contributions welcome to `scoring-data.js`.
